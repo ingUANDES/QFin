@@ -1,0 +1,79 @@
+--- 
+title: "Grupo de Finanzas Sostenibles"
+author: "IngUAndes"
+date: "Diciembre 2021, versión: `r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "Este material recoge apuntes relacionados al grupo de investigación sobre Finanzas Sostenibles de la Facultad de Ingeniería."
+---
+
+<!-- Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`. -->
+
+<!-- To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>. -->
+
+```{r bibliomanagment, include=FALSE}
+library(RefManageR)
+# https://docs.ropensci.org/RefManageR/index.html
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           style = "markdown",
+           hyperlink = TRUE,
+           dashed = FALSE
+           )
+# Initil bib
+# myBib <- ReadBib("references.bib", check = FALSE)
+zoterokey<- Sys.getenv("zoterokey")
+zoteroID<- Sys.getenv("zoteroID")
+# myBib<-ReadZotero(user = zoteroID, .params=list(key = zoterokey, q="Carlin"))
+# Update desde .bib inicial
+# myBib<-myBib+ ReadZotero(user = zoteroID, .params=list(key = zoterokey, q="Amigo"))
+# myBib<-myBib+ ReadZotero(user = zoteroID, .params=list(key = zoterokey, q="Dewan"))
+# myBib<-myBib+ ReadZotero(user = zoteroID, .params=list(key = zoterokey, q="Geller"))
+# WriteBib(myBib, "references.bib", biblatex = TRUE)
+myBib <- ReadBib("references.bib")
+```
+
+
+# Introducción {-}
+
+Las temáticas se relacionan con 3 Objetivos de trabajo:
+
+- Descripción de un marco metodológico de trabajo
+- Aplicaciones: Energía `r Citep(myBib,"amigo_two_2021")`, Pensiones `r Citep(myBib,"carlin_implementation_2015")`
+- Validación experimental: `r Citep(myBib,"dewan_estimating_2020")`, `r Citep(myBib,"geller_gazer_2020")`  
+
+
+
+## Integrantes  {-}
+ <!-- {-} saca la numeración de la sección -->
+
+Tesista: José Tomás Pérez
+
+Memoristas
+
+- Vicente Muñoz
+- Ezequiel Ortíz
+
+Ayudantes: Hernán Venegas
+
+Investigador Responsable: Sebastián Cea
+
+
+## Bibliografía base  {-}
+
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(myBib)
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

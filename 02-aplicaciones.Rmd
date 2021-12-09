@@ -1,0 +1,9 @@
+# Aplicaciones {#aplicaciones}
+
+
+## Energía
+
+
+## Pensiones
+
+Una aplicación para estudiar sistemas de pensiones es asumir una distribución de agentes atentos o sofisticados siguiendo el modelo de `r Citep(myBib,"carlin_implementation_2015")`.
