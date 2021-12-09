@@ -64,6 +64,13 @@ Ayudantes: Hernán Venegas
 
 Investigador Responsable: Sebastián Cea
 
+## Planificación {-}
+
+```{r echo=FALSE}
+# https://bookdown.org/yihui/rmarkdown-cookbook/diagrams.html
+DiagrammeR::mermaid("code/gantt.mmd")
+```
+
 
 ## Bibliografía base  {-}
 

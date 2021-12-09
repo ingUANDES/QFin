@@ -1,0 +1,14 @@
+---
+title: "Grupo de Finanzas Sostenibles"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Contenido del Repositorio
+
+- Directorio Raíz contiene un documento integral de trabajo que genera una versión web accesible en [inguandes.github.io/FinSost/](https://inguandes.github.io/FinSost/)
+- [`docs`](docs) está expuesta públicamente como web
+- [`code`](code) contiene códigos y plantillas de trabajo

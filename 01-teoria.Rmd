@@ -4,6 +4,10 @@
 
 ## Atención y Sofisticación de los tomadores de decisión
 
+### Elecciones discretas
+
+Ver propuesta [MathAmSud](https://sebacea.github.io/drivers/DiscreteRI)
+
 ## Señales de información en la industria
 
 Descripción del cuestionario
