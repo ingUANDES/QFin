@@ -69,10 +69,13 @@ Investigador Responsable: Sebastián Cea
 ```{r echo=FALSE}
 # https://bookdown.org/yihui/rmarkdown-cookbook/diagrams.html
 DiagrammeR::mermaid("code/gantt.mmd")
-DiagrammeR::mermaid("code/ganttO2.mmd")
+
 ```
 
-
+```{r echo=FALSE}
+# https://bookdown.org/yihui/rmarkdown-cookbook/diagrams.html
+DiagrammeR::mermaid("code/ganttO2.mmd")
+```
 ## Bibliografía base  {-}
 
 ```{r refs, echo=FALSE, results="asis"}
