@@ -7,7 +7,6 @@ En el contexto de la energía, el medio ambiente es directamente afectado por la
 La propuesta de chile ECLP (incluir bibliografía de documento) es la propuesta climática a largo plazo que Chile presentó en la COP26 el mes de Octubre de 2021. En ella, Chile propone medidas drásticas para combatir las emisiones y realizando una propuesta específica en la sección de generación de energía. En ella se presenta un presupuesto para los generadores de energía de (encontrar valor real). Pero, interesantemente, no se incluye un mecanismo o plan específico de como las empresas generadoras lograrán esto y como se llevará a cabo la supervisión de esta meta.
 
 
-
 ## Pensiones
 
 Una aplicación para estudiar sistemas de pensiones es asumir una distribución de agentes atentos o sofisticados siguiendo el modelo de `r Citep(myBib,"carlin_implementation_2015")`.
