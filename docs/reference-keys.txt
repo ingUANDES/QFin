@@ -1,7 +1,9 @@
 teoria
 atención-y-sofisticación-de-los-tomadores-de-decisión
+elecciones-discretas
+señales-de-información-en-la-industria
 aplicaciones
 energía
 pensiones
 experimentos
-señales-de-información-en-la-industria
+contenido-del-repositorio
