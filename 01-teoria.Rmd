@@ -10,6 +10,7 @@ Ver propuesta [MathAmSud](https://sebacea.github.io/drivers/DiscreteRI)
 
 ## Señales de información en la industria
 
+
 Descripción del cuestionario
 
 - Descripción general del cuestionario
@@ -23,5 +24,6 @@ Por una parte, el encuestado tendra que responder preguntas generales sobre "Inv
 El cuestionario también cuenta con una sección de preguntas las cuales estan orientadas a las diferentes industrias que estan involucradas con inversiones que poseen criterios de sostenibilidad. 
 
 Los encuestados pertenecen a las industrias de la banca, fondos de inversión, administradoras de fondos, generación eléctrica, consultoría, etc. 
+
 
 
