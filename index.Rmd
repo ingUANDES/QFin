@@ -74,6 +74,12 @@ DiagrammeR::mermaid("code/gantt.mmd")
 
 ```{r echo=FALSE}
 # https://bookdown.org/yihui/rmarkdown-cookbook/diagrams.html
+DiagrammeR::mermaid("code/Gantt O1.mmd")
+
+```
+
+```{r echo=FALSE}
+# https://bookdown.org/yihui/rmarkdown-cookbook/diagrams.html
 DiagrammeR::mermaid("code/gantto2.mmd")
 ```
 ## Bibliografía base  {-}
