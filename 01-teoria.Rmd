@@ -25,3 +25,112 @@ Los encuestados pertenecen a las industrias de la banca, fondos de inversión, a
 
 
 
+
+
+## Teoría modelos de equilibrio
+### Introducción y Estructura
+
+Para lograr interpretar la toma de decisiones de los agentes en cualquier mercado es necesario entenderlos y lograr plasmar el sistema en el cual están involucrados en algún tipo de modelo. Los modelos de optimización bien diseñados logran encontrar los mejores valores en las variables para un determinado problema. Estas variables pueden ser interpretaciòn de qué decisiones deben tomar los agentes involucrados mientras estos tengan el poder de cambiarlos. Un modelo bien estructurado, con restricciones basadas en la matemática y la teoría económica puede significar un cambio operacional, táctico o incluso operacional para una empresa. Como también un modelo puede mostrar el comportamiento de un mercado en su totalidad.
+
+En esta sección se estudian modelos de equilibrio, comenzando con el modelo de equilibrio general, luego un modelo de equilibrio en capacidad, modelo de equilibrio con riesgo y finalmente modelos de equilibrio con riesgo en mercados completos e incompletos.
+
+### Modelos de equilibrio
+
+La descripción de estos modelos serán descritos según variables fuentes de información. Principalmente se utilizó el paper de d’Aertrycke et alii llamado [Risk trading in capacity equilibrium models (2017)](https://doi.org/10.17863/CAM.17552) para las propiedades de los modelos más específicos y funcionamiento general.
+
+#### Características de Modelos de equilibrio
+
+Los modelos de equilibrio son aquellos que modelan un problema donde los tomadores de decisión (representados por variables en el modelo) cumplen con restricciones de equilibrio  asociadas a sus decisiones. Este equilibrio puede ser impuesto por el problema o puede ser respuesta de la naturaleza del sistema o situación que se está modelando. [ScienceDirect](https://www.sciencedirect.com/topics/engineering/equilibrium-model) Extrae comentarios clave del paper de [Zhaoguang Hu et alii (2014)](https://www.sciencedirect.com/topics/engineering/equilibrium-model), sobre el modelo de equilibrio general, explicando que usando un grupo de ecuaciones matemáticas, se puede explicar el equilibrio que existe entre la oferta y demanda en varios mercados. En este paper se explica que el modelo incluye variables endógenas y exógenas para representar el sistema, los cambios en estas últimas logran cambios en todo el sistema.
+
+
+En este tutorial nos concentramos en modelos de equilibrio en capacidad relacionados al mercado de generación eléctrica. Donde existe, por una parte, un equilibrio entre la demanda de energía de los consumidores y la oferta de energía ofertada por los productores, y por otra parte, un equilibrio entre la capacidad instalada de los productores y su oferta. Siendo este problema formulado como la minimización anual de inversión en las plantas generadoras de energía.
+
+Los modelos de equilibrio en capacidad fueron históricamente utilizados, en especial para determinar las expansiones en capacidad para las empresas generadoras.
+
+#### Problemas de equilibrio en capacidad con riesgo asociado(risky design equilibrium problem) y modelo de dos etapas
+
+El paper [1](https://doi.org/10.17863/CAM.17552) describe cómo estos problemas funcionan donde se empieza determinando que  para este tipo de modelos existe una variable o vector de variables de diseño denotada como  x $x \in R^{n}$  Rn la cual describe la inversión en activos riesgos tales como plantas de producción de energía que llevan consigo poderes de producción determinados y proporcionales al grado de inversión en mercados con incertidumbre de demanda. 
+
+Es importante entender que este tipo de problemas son de optimización estocásticos, o sea, existe aleatoriedad respecto a los parámetros de entrada. En este caso esta aleatoriedad se ve reflejada en los escenarios estocásticos posibles K con w perteneciente a cada escenario {1, ….,K} de costos. Entonces existe una entrada de costos y parámetros $C^{w}$   que corresponden a cada escenario W. La probabilidad de ocurrencia de cada escenario depende de una distribución de probabilidad $\Theta$ la cuál es definida y la notación $E_{\Theta}[U]$ corresponde a la suma ponderada con probabilidad  de cada $u_{w} \in U$ . Esto se explica en el siguiente ejemplo.
+
+##### Ejemplo
+
+Se tienen 3 escenarios posibles con w = {1,2,3} y parámetros $c_{w}$={c1, c2,c3} y variables de diseño $x_{w]$={$x_{1}$, $x_{2}$,$x_{3}$}. Luego, se tiene una suma ponderada de escenarios  $E_{\Theta}$[$x_{w}$$c_{w}$] y la probabilidad de ocurrencia de cada escenario w es igual a $\Theta$ ={0.5 , 0.3 ,0.2 }. 
+
+Entonces se tiene: 
+
+$$E_{\Theta} [ x_{w} c_{w}] = x_{1}c_{1}0.5 + x_{2}c_{2}0.3 + x_{3}c_{3}0.2 $$
+Estos modelos en particular tienen dos etapas de decisión i={0,1} para los agentes de producción. Donde en la primera etapa i=0 el productor(monopolio) o grupo de productores (mercado competitivo) decide su inversión en capacidad x. Luego, en la segunda etapa i=1, se decide la producción Y (recordar que si existe más de un escenario, generalmente escenarios de demanda o costos, la variable de producción también dependerá del escenario w, teniendo $Y_{w}$ para cada uno).
+
+Como explica [1](https://doi.org/10.17863/CAM.17552), estos problemas son, en su forma general, descritos como siguiente. Donde existe una función f convexa y continua, g convexa y continua donde para cada x :
+
+$$ min f(x,y) sujeta a g(x,y)\le 0$$
+
+Donde se busca minimizar los costos asociados al problema y g(x,y) puede ser una o un grupo de restricciones que equilibre la capacidad con la producción.
+
+Ahora, para contrarrestar el costo de escenarios de incertidumbre, que vienen consigo sub inversión o sobre inversión dependiendo de cada escenario, cada agente i se dota de una medida de riesgo $r_{i}$ que mide su costo de incertidumbre $\Xi_{i}(x_{i},x_{-i})$ como $r_{i}=(\Xi_{i}(x_{i},x_{-i}))$.Esta realidad logra que el agente i tenga que tomar otra decisión de inversión, el agente debe decidir qué productos financieros  Wi perteneciente a W elegir para compensar el riesgo de incertidumbre. Estos productos tienen un precio asociado $P^{\tau}[W]$. Este precio es determinado por la condición de que todos los productos financieros deben balancearse logrando que:
+
+$$\sum_{i=1}^{N}W_{i} = 0$$
+
+Para un mejor entendimiento del comportamiento de estos activos revisar [1](https://doi.org/10.17863/CAM.17552).
+
+Ahora, para cada una de las dos etapas de este sistema existen importantes consideraciones.
+
+En la primera etapa, la empresa generadora toma una decisión de inversión en capacidad x, mientras que el demandante, si la circunstancia lo amerita, también toma una decisión de inversión en capacidad x’. 
+
+En la segunda etapa, se sabe la demanda del periodo y la empresa generadora produce de la mejor forma posible o donde más eficiente se logre. La producción es $Y_{w}$ para el escenario y se vende la energía a un precio $P_{w}\le 0$ y costo $C_{w}(Y_{w})$. En cada escenario w, la empresa buscará maximizar las utilidades o minimizar los costos de operación y al mismo tiempo el demandante buscará maximizar sus utilidades de demanda $Q_{w}$ al comprar la energía al precio $P_{w}$. Estos problemas también deben cumplir restricciones de complementariedad, las cuales, si el problema en sí las incluye en su modelamiento, pueden ser programadas con la librería [Pyomo](https://link.springer.com/book/10.1007/978-3-319-58821-6) .
+
+#### Risk Neutral case
+
+Este es el caso donde todos los agentes involucrados en el problema, determinan o consideran a sus costos estocásticos del problema con la probabilidad $\Theta$ anteriormente explicada de cada escenario w. Esto significa que aquellos costos asociados a la producción respetan esta probabilidad pero los costos de inversión en capacidad no son la parte estocástica por lo que no son afectados directamente por esta. En el caso $Risk$ $Neutral$ existe solamente el riesgo en inversión de capacidad pero no un riesgo de compra de activos financieros ya que los agentes, en este caso, son neutrales al riesgo de intercambio o compra de activos financieros. Este es el caso más estudiado en la literatura en comparación a los de mercados completos e incompletos.
+
+Como se mencionó anteriormente, este estudio explora la aplicación de estos modelos en el mercado de empresas generadoras de electricidad, donde existen dos tipos de agentes, empresas generadoras únicamente de electricidad y demandantes de la energía producida. Este es un caso de mercado competitivo por lo que las empresas no actúan estratégicamente para influenciar los precios. Para todos estos casos en particular, se estudiará la situación donde existen 2 agentes en total, 1 generador de electricidad y 1 demandante. 
+
+Bajo estas circunstancias, se tiene que es es un problema competitivo de equilibrio en capacidad con riesgo neutral si es que existe un grupo de variables ($x_{1}$, Y, $x_{2}$, Q) que resuelva lo siguiente: 
+
+
+$$ \text{min } I_{1}(x_{1})+ I_{2}(x_{2})+E_{\Theta}[C_{w}(Y_{w}-U_{w}(Q_{w})]\text{      } (1)$$
+$$s.a$$
+$$ x_{1} \epsilon X_{1} ,x_{2} \epsilon X_{2}$$
+$$A_{1w}x_{1}+B_{1w}Y{w}+b_{1w} \le 0 $$
+$$A_{2w}x_{2}+B_{2w}Y{w}+b_{2w} \le 0 $$
+$$Q_{w}\le e^{\tau}Y_{w}\text{  }\text{ para todo w}$$
+
+Para mostrar de mejor forma este problema, se llevará a cabo la realización del problema 3.3.1 de [1](https://doi.org/10.17863/CAM.17552) .
+
+
+##### Ejemplo
+
+En este ejemplo existe un productor de electricidad con una planta y un demandante. La planta tiene un capital de inversión anualizado de I=90000 \$/MW y costo de operación de C=60\$/MWh. El periodo de un año se otorga como t=8760 horas. El productor es riesgo neutral y resuelve la ecuación 
+
+$$\text{min }I(x)+t*E_{\Theta}[(C-P_{2})Y_{w}]\text{ (2)}$$
+$$s.a$$
+$$0\le Y_{w}\le x$$
+Se recuerda que $Y$ es la oferta de electricidad en la segunda etapa y $x$ es la capacidad instalada en la primera etapa, las cuales se relacionan según la restricción dada, donde la producción no puede superar a la capacidad instalada. La demanda de función de utilidad asociada a la demanda $U_{w}(Q_{w})=A_{w}Q_{w}-B*0.5*Q_{w}^2$ , que ocurre en la segunda etapa, se ve reflejada en la siguiente función objetivo de minimización de costos del consumidor:
+
+$$\text{min } t*E_{\Theta}[P_{w}Q_{w}-A_{w}Q_{w}+B*0.5*Q_{w}^2]\text{ (3)}$$
+Donde A varía según cada escenario w (ver tabla 1.3.1) y B=1$\$/MWh^2$ constante para todos los escenarios. Se consideran 5 escenarios, los cuales ocurren con igual probabilidad 0.2 (20%).
+
+w|1|2|3|4|5
+-|-|-|-|-|-
+A[\$/MWh]|300|350|400|450|500
+Tabla 1: valor de función de utilidad U_{w}[Fuente](https://doi.org/10.17863/CAM.17552)
+
+Este problema se convierte en uno de riesgo neutral competitivo de equilibrio en capacidad al llegar a un modelo similar a (1) combinando (2) y (3) y respetando la programación de (1), por ejemplo al observar en la función objetivo $E_{\Theta}[C_{w}(Y_{w})-U_{w}(Q_{w})]$. Entonces finalmente se tiene el siguiente problema de optimización:
+
+$$\text{min }I(x)+ t*E_{\Theta}[CY_{w}-A_{w}Q_{w}+B*0.5*Q_{w}^2]$$
+$$s.a$$
+$$0 \le Y_{w}$$
+$$Y_{w} \le x$$
+$$Q_{w}=Y{w}$$
+La solución y programación de este problema se puede ver en la sección 2 Aplicaciones en Python. 
+
+Debido a que la utilidad es cuadrática y el demandante es tomador de precios, la solución satisface la siguiente relación de precio:
+$$P_{w}=A{w}-B*Q_{w}$$
+La cual es una función conocida y muy utilizada de demanda. Como también, teniendo la variable dual $\mu_{w}$ asociada a la restricción $Y_{w}\le x$,  se encuentra que el equilibrio de producción Y del productor en la segunda etapa se logra gracias a la siguiente condición de optimalidad:
+
+$$0\le Y_{w}\text{ } \perp \text{ }\mu_{w}+C-P_{w} \ge 0$$
+Siendo esta ortogonalidad y una restricción de complementariedad que se ve reflejada en los resultados y su interpretación. Para más información sobre MCP (Mixed Complementarity Problem) y su programación revisar [Pyomo](https://link.springer.com/book/10.1007/978-3-319-58821-6).
+
+
+
