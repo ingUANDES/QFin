@@ -10,15 +10,58 @@ La propuesta de chile [ECLP](https://cambioclimatico.mma.gob.cl/estrategia-clima
 
 Una de las posibles respuestas a este problema es un sistema de cap-and-trade, un mercado donde las empresas puedan comprar y vender sus permisos de contaminación, permitiendoles reordenar sus inversiones en cada periodo. Este sistema llevado a dos etapas (primera etapa se compran los permisos a un subastador y segunda etapa se pueden comprar o vender permisos a otras empresas) es satisfactoriamente modelado por los autores del artículo de [Amigo et alii](https://www.sciencedirect.com/science/article/pii/S0360544221003789). Este es un modelo de equilibrio en inversion en capacidad de dos etapas. Este modelo incorpora al subastador y sus decisiones junto con las empresas de generación de electricidad y todas sus decisiones respectivas. Este modelo tiene como base el estudio de un artículo llamado  [d'Aertrycke et alii](https://doi.org/10.17863/CAM.17552). 
 
-En este se explica que a pesar de que se estudian distintos agentes en dos etapas distintas, al cambiar notaciones y al existir el cumplimiento de ciertas propiedades, este puede ser expresado en un solo modelo de optimización. Se estudiará específicamente el ejemplo 3.4.1 de un modelo llamado \*Risky competitive capacity equilibrium problem with complete markets as risk averse optimization problem \*
+### Cómputo de modelos de optimización
 
-### Ejemplo 3.4.1 d'Aertrycke et alii
+A pesar de que existen diversos lenguajes de programación que soportan optimización de modelos y muchos de estos contienen librerías especializadas para encontrar estas soluciones, si sabes que probablemente, en algún momento, necesitarás encontrar soluciones de problemas no lineales, se recomienda aprender librerías que soportan este tipo de problemas. En este texto se llevará a cabo la explicación de cómputo de modelos no lineales en GAMS y pyscipopt (librería soportada por Python). 
 
-Como se mencionó anterirormente, este modelo consta de un problema de equilibrio en capacidad con riego competitivo con mercados completos, el cuál es un modelo MCP. En su forma general, este se ve de la siguiente forma: 
+#### GAMS Studio
 
-       
+Según lo menciona la página de [GAMS Studio](https://www.gams.com/34/docs/UG_studio_tutorial.html), este es un programa que permite la programación e interfaz gráfica para ejecutar GAMS. GAMS, por su lado, es un lenguaje de programación para modelación. Este sistema es muy amigable para realizar modelamiento de múltiples tipos de modelos de optimización y con herramientas para resolverlos. Una de las ventajas de utilizar GAMS Studio es el detalle de se entrega luego de encontrada (o no) la solución a un problema de modelación. Este detalle demuestra los valores de cada variables en detalle junto con sus intervalos de error posibles y entrega información detallada del computador en el cual se está trabajando. En caso de que el sistema no logre encontrar solución, este entregará esa información junto con posibles problemas del modelo. 
+
+Para utilizar este programa es importante entender el problema de optimización escrito, considerando todas las restricciones del problema y definiendo todas las variables y parámetros adecuadamente. Para que no existan errores, se deben utilizar los separadores como “;” y definir cuales corresponden a variables, escenarios, parámetros, ecuaciones, restricciones y nombrar el modelo. Es importante que al definir las restricciones “=g=” significa “mayor que” , “=l=” significa “menor que” y “=e=” significa “igual que”.
+
+#### Pyscipopt
+
+SCIP es una librería de código abierto para distintos programas. Para la citación de este solver, su página web solicita citar los siguientes 2 artículos [6](http://opus.kobv.de/zib/volltexte/2008/1081/pdf/ZR_08_01.pdf) [7](http://mpc.zib.de/index.php/MPC/article/view/4). Por otro lado, Pyscipopt es la interfaz desde python a la SCIP Optimization Suite. La ventaja de este solver es, en adición a entregar resultados certeros de modelos no lineales, es que presenta la posibilidad de incluir sumatorias propias para definir las restricciones con mayor facilidad y su notación simplifica mucho la posibilidad de incluir variables y de utilizar las funciones usuales de Python sin el cuidado de afectar la sintaxis del solver. 
+
+Para utilizar este programa es necesario instalar ciertas interfaces con anterioridad. La forma más rápida y eficiente de poder utilizar esta librería es por medio de Google Colab (para información adicional de este sistema visitar [esta Referencia](https://colab.research.google.com/) ) . Una vez en un archivo Colab, es necesario agregar dos códigos distintos que contengan (3) y (4) respectivamente. 
+
+`!pip install -q condacolab`
+`import condacolab`             (3)  
+`condacolab.install()`
+`!conda install --channel conda-forge pyscipopt`       (4)
+
+Se deben ejecutar ambos códigos (en orden (3), (4)) cada vez que se accede al archivo, para tener acceso a la librería pyscipopt. Una vez con esto activado, se pueden programar modelos de optimización y encontrar soluciones.
+
+Una de las principales características y ventajas que esta librería tiene sobre otras es la posibilidad de resolver problemas lineales y no lineales, soporta no linealidad en las restricciones y soporta no linealidad en la función objetivo realizando una pequeña transformación (ver sección *Problema de optimización de equilibrio en capacidad con riesgo neutral* para un ejemplo de esto). 
+
+Para programar de forma correcta el modelo es necesario tener los cinco siguientes elementos en el código (en adición a la llamada de la librería):
 
 
+1. Comenzar el modelo: se debe escribir el comienzo del modelo o apertura de su      diseño con el siguiente comando,
+   `modelo=Model()`
+
+2. Definir las variables: es necesario definir a todas las variables con la          nomenclatura general como sigue,
+   `x=modelo.addVar('x', vtype='C')  #’C’ para variables continuas’`
+   `y=modelo.addVar('y', vtype='d') #’d’ para variables discretas’`
+
+3. Generar la función objetivo: se debe definir la función objetivo de forma         directa o a partir de otra variable inventada, acá también se define si el       problema es de minimización o maximización,
+  `modelo.setObjective(x+y, "minimize")`
+
+4. Agregar las restricciones: hay que agregar las restricciones del modelo, la       naturaleza de las variables se pueden agregar en la misma definicion de las       variables o como restricción,
+  `modelo.addCons(x>=y)`
+  `modelo.addCons(x>=0)`
+  `modelo.addCons(y>=0)`
+ 
+5. Resolver el problema: se agrega el comando para que el solver optimice y así      encuentre la mejor solución posible,
+   `modelo.optimize()`
+ 
+6. Llamar a las soluciones encontradas: Este paso no es necesario para resolver el    problema pero se necesita si se quieren encontrar las soluciones del problema,
+   `modelo.getVal(x)`
+   `modelo.getObjVal()`
+
+
+##### Problema de optimización de equilibrio en capacidad con riesgo neutral
 
 
 ## Pensiones
