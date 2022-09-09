@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Grupo de Finanzas Sostenibles</title>
   <meta name="description" content="Este material recoge apuntes relacionados al grupo de investigación sobre Finanzas Sostenibles de la Facultad de Ingeniería." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Grupo de Finanzas Sostenibles" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Este material recoge apuntes relacionados al grupo de investigación sobre Finanzas Sostenibles de la Facultad de Ingeniería." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -32,7 +31,6 @@
   
 
 <link rel="next" href="teoria.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
@@ -59,7 +58,7 @@
 <script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.9/DiagrammeR.js"></script>
 
 
 
@@ -93,10 +92,19 @@
 <li class="chapter" data-level="1.1.1" data-path="teoria.html"><a href="teoria.html#elecciones-discretas"><i class="fa fa-check"></i><b>1.1.1</b> Elecciones discretas</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="teoria.html"><a href="teoria.html#señales-de-información-en-la-industria"><i class="fa fa-check"></i><b>1.2</b> Señales de información en la industria</a></li>
+<li class="chapter" data-level="1.3" data-path="teoria.html"><a href="teoria.html#teoría-modelos-de-equilibrio"><i class="fa fa-check"></i><b>1.3</b> Teoría modelos de equilibrio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="teoria.html"><a href="teoria.html#introducción-y-estructura"><i class="fa fa-check"></i><b>1.3.1</b> Introducción y Estructura</a></li>
+<li class="chapter" data-level="1.3.2" data-path="teoria.html"><a href="teoria.html#modelos-de-equilibrio"><i class="fa fa-check"></i><b>1.3.2</b> Modelos de equilibrio</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="aplicaciones.html"><a href="aplicaciones.html"><i class="fa fa-check"></i><b>2</b> Aplicaciones</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="aplicaciones.html"><a href="aplicaciones.html#energía"><i class="fa fa-check"></i><b>2.1</b> Energía</a></li>
+<li class="chapter" data-level="2.1" data-path="aplicaciones.html"><a href="aplicaciones.html#energía"><i class="fa fa-check"></i><b>2.1</b> Energía</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="aplicaciones.html"><a href="aplicaciones.html#contexto"><i class="fa fa-check"></i><b>2.1.1</b> Contexto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="aplicaciones.html"><a href="aplicaciones.html#cómputo-de-modelos-de-optimización"><i class="fa fa-check"></i><b>2.1.2</b> Cómputo de modelos de optimización</a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="aplicaciones.html"><a href="aplicaciones.html#pensiones"><i class="fa fa-check"></i><b>2.2</b> Pensiones</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="experimentos.html"><a href="experimentos.html"><i class="fa fa-check"></i><b>3</b> Experimentos</a>
@@ -126,18 +134,18 @@
 <div id="header">
 <h1 class="title">Grupo de Finanzas Sostenibles</h1>
 <p class="author"><em>IngUAndes</em></p>
-<p class="date"><em>Diciembre 2021, versión: 2021-12-14</em></p>
+<p class="date"><em>Diciembre 2021, versión: 2022-09-08</em></p>
 </div>
-<div id="introducción" class="section level1 unnumbered">
-<h1>Introducción</h1>
+<div id="introducción" class="section level1 unnumbered hasAnchor">
+<h1>Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Las temáticas se relacionan con 3 Objetivos de trabajo:</p>
 <ul>
 <li>Descripción de un marco metodológico de trabajo</li>
 <li>Aplicaciones: Energía <a name=cite-amigo_two_2021></a>(<a href="#bib-amigo_two_2021">Amigo, Cea-Echenique, and Feijoo, 2021</a>), Pensiones <a name=cite-carlin_implementation_2015></a>(<a href="#bib-carlin_implementation_2015">Carlin and Davies, 2015</a>)</li>
 <li>Validación experimental: <a name=cite-dewan_estimating_2020></a>(<a href="#bib-dewan_estimating_2020">Dewan and Neligh, 2020</a>), <a name=cite-geller_gazer_2020></a>(<a href="#bib-geller_gazer_2020">Geller, Winn, Mahr, and Mirman, 2020</a>)</li>
 </ul>
-<div id="integrantes" class="section level2 unnumbered">
-<h2>Integrantes</h2>
+<div id="integrantes" class="section level2 unnumbered hasAnchor">
+<h2>Integrantes<a href="index.html#integrantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><!-- {-} saca la numeración de la sección --></p>
 <p>Tesista: José Tomás Pérez</p>
 <p>Memoristas</p>
@@ -148,47 +156,49 @@
 <p>Ayudantes: Hernán Venegas</p>
 <p>Investigador Responsable: Sebastián Cea</p>
 </div>
-<div id="planificación" class="section level2 unnumbered">
-<h2>Planificación</h2>
-<div id="htmlwidget-e4937289f7f87426f353" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e4937289f7f87426f353">{"x":{"diagram":"gantt\n    title Project Gantt Chart\n    dateFormat   YYYY-MM-DD\n    section Theoretical Stage\n    Literature Review               :a1, 2022-03-15, 52w\n    Theoretical Examples            :a2, 2022-09-15, 52w\n    (O1) Existence and welfare analysis  :a3, after a1, 2024-09-15\n    (O2) Applied Example                 :a4, 2022-09-15, 2024-03-15\n    section Validation Stage\n    Experiment design               :a6, 2022-12-15, 52w\n    (O3) Experiment validation           :a7, after a2, 2025-03-15"},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-0b64c830a3d4cb4d137b" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0b64c830a3d4cb4d137b">{"x":{"diagram":"gantt\n    title Objective 2 Gantt Chart\n    dateFormat   YYYY-MM-DD\n    section Theoretical Stage\n    3.4.1 dAertrycke et alii Example description and explanation       :a1, 2021-12-13, 1d\n    Study Pyscipopt, Gekko, Gurobi libraries  :a2, 2021-12-15, 1d\n    section Validation Stage\n    Find 3.4.1 Example solution  :a3, 2021-12-15, 2d\n    Description of problem and solution :a4, 2021-12-17, 1d\n    CO2 budget Explication        :a5, 2021-12-20, 2d\n    Rest of objetive 2           :a6, 2021-12-22, 2021-12-31"},"evals":[],"jsHooks":[]}</script>
+<div id="planificación" class="section level2 unnumbered hasAnchor">
+<h2>Planificación<a href="index.html#planificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="htmlwidget-588c486547c57733b2d5" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-588c486547c57733b2d5">{"x":{"diagram":["gantt","    title Project Gantt Chart","    dateFormat   YYYY-MM-DD","    section Theoretical Stage","    Literature Review               :a1, 2022-03-15, 52w","    Theoretical Examples            :a2, 2022-09-15, 52w","    (O1) Existence and welfare analysis  :a3, after a1, 2024-09-15","    (O2) Applied Example                 :a4, 2022-09-15, 2024-03-15","    section Validation Stage","    Experiment design               :a6, 2022-12-15, 52w","    (O3) Experiment validation           :a7, after a2, 2025-03-15"]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cbb83747051ff0858c47" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cbb83747051ff0858c47">{"x":{"diagram":"code/Gantt O1.mmd"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5eb5b10918ff66b9333f" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5eb5b10918ff66b9333f">{"x":{"diagram":["gantt","    title Objective 2 Gantt Chart","    dateFormat   YYYY-MM-DD","    section Theoretical Stage","    3.4.1 dAertrycke et alii Example description and explanation      :a1, 2021-12-13, 1d","    Study Pyscipopt, Gekko, Gurobi libraries  :a2, 2021-12-15, 1d","    section Validation Stage","    Find 3.4.1 Example solution  :a3, 2021-12-15, 2d","    Description of problem and solution :a4, 2021-12-17, 1d","    section Tutorial","    Models descriptions        :a5, 2021-12-20, 2d","    Computational tutorial     :a6, 2021-12-22, 2d","    Visualization tutorial     :a7, 2021-12-24, 1d","  "]},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="bibliografía-base" class="section level2 unnumbered">
-<h2>Bibliografía base</h2>
+<div id="bibliografía-base" class="section level2 unnumbered hasAnchor">
+<h2>Bibliografía base<a href="index.html#bibliografía-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a name=bib-amigo_two_2021></a><a href="#cite-amigo_two_2021">Amigo, P., S. Cea-Echenique, and F.
 Feijoo</a> (2021). “A two stage cap-and-trade model
 with allowance re-trading and capacity investment: The case of the
-Chilean NDC targets.” En. In: <em>Energy</em> 224, p. 120129. ISSN: 03605442.
+Chilean NDC targets”. En. In: <em>Energy</em> 224, p. 120129. ISSN: 03605442.
 DOI:
 <a href="https://doi.org/10.1016%2Fj.energy.2021.120129">10.1016/j.energy.2021.120129</a>.
 URL:
 <a href="https://linkinghub.elsevier.com/retrieve/pii/S0360544221003789">https://linkinghub.elsevier.com/retrieve/pii/S0360544221003789</a>
-(visited on mar. 10, 2021).</p>
+(visited on Mar. 10, 2021).</p>
 <p><a name=bib-carlin_implementation_2015></a><a href="#cite-carlin_implementation_2015">Carlin, B. I. and S.
 Davies</a> (2015). <em>The Implementation
 of State Sponsored Retirement Plans</em>. En. SSRN Scholarly Paper ID
 2589701. Rochester, NY: Social Science Research Network. DOI:
 <a href="https://doi.org/10.2139%2Fssrn.2589701">10.2139/ssrn.2589701</a>. URL:
 <a href="https://papers.ssrn.com/abstract=2589701">https://papers.ssrn.com/abstract=2589701</a>
-(visited on nov. 02, 2020).</p>
+(visited on Nov. 02, 2020).</p>
 <p><a name=bib-dewan_estimating_2020></a><a href="#cite-dewan_estimating_2020">Dewan, A. and N.
 Neligh</a> (2020). “Estimating information
-cost functions in models of rational inattention.” En. In: <em>Journal of
+cost functions in models of rational inattention”. En. In: <em>Journal of
 Economic Theory</em> 187, p. 105011. ISSN: 00220531. DOI:
 <a href="https://doi.org/10.1016%2Fj.jet.2020.105011">10.1016/j.jet.2020.105011</a>.
 URL:
 <a href="https://linkinghub.elsevier.com/retrieve/pii/S002205311830396X">https://linkinghub.elsevier.com/retrieve/pii/S002205311830396X</a>
-(visited on mar. 23, 2021).</p>
+(visited on Mar. 23, 2021).</p>
 <p><a name=bib-geller_gazer_2020></a><a href="#cite-geller_gazer_2020">Geller, J., M. B. Winn, T. Mahr, et
 al.</a> (2020). “GazeR: A Package for Processing
-Gaze Position and Pupil Size Data.” En. In: <em>Behavior Research Methods</em>
+Gaze Position and Pupil Size Data”. En. In: <em>Behavior Research Methods</em>
 52.5, pp. 2232-2255. ISSN: 1554-3528. DOI:
 <a href="https://doi.org/10.3758%2Fs13428-020-01374-8">10.3758/s13428-020-01374-8</a>.
 URL:
 <a href="https://doi.org/10.3758/s13428-020-01374-8">https://doi.org/10.3758/s13428-020-01374-8</a>
-(visited on ene. 29, 2021).</p>
+(visited on Jan. 29, 2021).</p>
 
 </div>
 </div>

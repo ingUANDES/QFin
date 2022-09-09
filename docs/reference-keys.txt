@@ -7,3 +7,16 @@ energía
 pensiones
 experimentos
 contenido-del-repositorio
+teoría-modelos-de-equilibrio
+introducción-y-estructura
+modelos-de-equilibrio
+características-de-modelos-de-equilibrio
+problemas-de-equilibrio-en-capacidad-con-riesgo-asociadorisky-design-equilibrium-problem-y-modelo-de-dos-etapas
+ejemplo
+risk-neutral-case
+ejemplo-1
+contexto
+cómputo-de-modelos-de-optimización
+gams-studio
+pyscipopt
+problema-de-optimización-de-equilibrio-en-capacidad-con-riesgo-neutral

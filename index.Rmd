@@ -1,5 +1,5 @@
 --- 
-title: "Grupo de Finanzas Sostenibles"
+title: "Grupo de Finanzas Cuantitativas"
 author: "IngUAndes"
 date: "Diciembre 2021, versión: `r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "Este material recoge apuntes relacionados al grupo de investigación sobre Finanzas Sostenibles de la Facultad de Ingeniería."
+description: "Este material recoge apuntes del Grupo de Finanzas Cuantitativas de la Facultad de Ingeniería."
 ---
 
 <!-- Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`. -->
